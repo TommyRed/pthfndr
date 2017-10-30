@@ -1,8 +1,8 @@
 package com.example.tommyred.pathfindergame.domain.board
 
 import com.example.tommyred.pathfindergame.domain.entities.Entity
-import com.example.tommyred.pathfindergame.domain.utilities.Coordinate
-import com.example.tommyred.pathfindergame.domain.utilities.state.State
+import com.example.tommyred.pathfindergame.domain.common.utilities.Coordinate
+import com.example.tommyred.pathfindergame.domain.common.utilities.state.State
 
 /**
  * Created by Rechtig on 21.05.2017.

@@ -1,10 +1,10 @@
 package com.example.tommyred.pathfindergame.domain.board
 
 import com.example.tommyred.pathfindergame.domain.entities.Entity
-import com.example.tommyred.pathfindergame.domain.utilities.Coordinate
-import com.example.tommyred.pathfindergame.domain.utilities.state.State
-import com.example.tommyred.pathfindergame.domain.utilities.state.Success
-import com.example.tommyred.pathfindergame.domain.utilities.state.errors.BoardError
+import com.example.tommyred.pathfindergame.domain.common.utilities.Coordinate
+import com.example.tommyred.pathfindergame.domain.common.utilities.state.State
+import com.example.tommyred.pathfindergame.domain.common.utilities.state.Success
+import com.example.tommyred.pathfindergame.domain.common.utilities.state.errors.BoardError
 
 /**
  * Created by Rechtig on 23.04.2017.
