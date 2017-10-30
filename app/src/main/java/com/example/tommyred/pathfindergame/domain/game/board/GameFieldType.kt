@@ -1,4 +1,4 @@
-package com.example.tommyred.pathfindergame.domain.board
+package com.example.tommyred.pathfindergame.domain.game.board
 
 /**
  * Created by Rechtig on 23.04.2017.

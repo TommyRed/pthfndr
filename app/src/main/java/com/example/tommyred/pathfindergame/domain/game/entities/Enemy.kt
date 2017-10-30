@@ -1,8 +1,9 @@
-package com.example.tommyred.pathfindergame.domain.entities
+package com.example.tommyred.pathfindergame.domain.game.entities
 
-import com.example.tommyred.pathfindergame.domain.board.GameBoard
-import com.example.tommyred.pathfindergame.domain.board.GameFieldType
+import com.example.tommyred.pathfindergame.domain.game.board.GameBoard
+import com.example.tommyred.pathfindergame.domain.game.board.GameFieldType
 import com.example.tommyred.pathfindergame.domain.common.utilities.Coordinate
+import com.example.tommyred.pathfindergame.domain.pathfinder.PF
 import com.example.tommyred.pathfindergame.domain.pathfinder.PathFinder
 
 
@@ -16,7 +17,7 @@ class Enemy(var coordinate: Coordinate, val type: GameFieldType) : Entity {
 
     println("Enemy on location x: ${coordinate.x}, y: ${coordinate.y}")
 
-    coordinate = PathFinder.findPath(gameboard, coordinate, destination)[1]
+    coordinate = PF.generateTurn(gameboard, coordinate, destination)
   }
 
   private fun generateTurn(board: GameBoard, destination: Coordinate): Coordinate {

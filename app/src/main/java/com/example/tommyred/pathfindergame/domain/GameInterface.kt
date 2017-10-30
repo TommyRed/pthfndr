@@ -1,8 +1,7 @@
 package com.example.tommyred.pathfindergame.domain
 
-import com.example.tommyred.pathfindergame.domain.board.GameBoard
-import com.example.tommyred.pathfindergame.domain.board.GameBoardImpl
-import com.example.tommyred.pathfindergame.domain.utilities.Direction
+import com.example.tommyred.pathfindergame.domain.game.board.GameBoard
+import com.example.tommyred.pathfindergame.domain.common.utilities.Direction
 import com.example.tommyred.pathfindergame.presentation.game.GamePresenter
 
 /**

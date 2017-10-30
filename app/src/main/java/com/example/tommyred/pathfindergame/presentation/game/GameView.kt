@@ -1,7 +1,7 @@
 package com.example.tommyred.pathfindergame.presentation.game
 
 
-import com.example.tommyred.pathfindergame.domain.board.GameBoard
+import com.example.tommyred.pathfindergame.domain.game.board.GameBoard
 
 /**
  * Created by Rechtig on 19.03.2017.

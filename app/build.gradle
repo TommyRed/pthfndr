@@ -5,6 +5,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true
         applicationId "com.example.tommyred.pathfindergame"
         minSdkVersion 21
         targetSdkVersion 25

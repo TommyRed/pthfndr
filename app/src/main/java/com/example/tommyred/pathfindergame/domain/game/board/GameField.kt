@@ -1,11 +1,7 @@
-package com.example.tommyred.pathfindergame.domain.board
-
-import com.example.tommyred.pathfindergame.domain.board.GameFieldType
+package com.example.tommyred.pathfindergame.domain.game.board
 
 /**
  * Created by Rechtig on 23.04.2017.
  */
 
-class GameField constructor(val type: GameFieldType) {
-
-}
+data class GameField constructor(val type: GameFieldType)

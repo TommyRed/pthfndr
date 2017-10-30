@@ -1,11 +1,10 @@
 package com.example.tommyred.pathfindergame.domain
 
-import com.example.tommyred.pathfindergame.domain.board.GameBoard
-import com.example.tommyred.pathfindergame.domain.entities.Enemy
-import com.example.tommyred.pathfindergame.domain.entities.Player
-import com.example.tommyred.pathfindergame.domain.utilities.Coordinate
-import com.example.tommyred.pathfindergame.domain.utilities.Direction
-import com.example.tommyred.pathfindergame.domain.utilities.state.Success
+import com.example.tommyred.pathfindergame.domain.game.board.GameBoard
+import com.example.tommyred.pathfindergame.domain.game.entities.Enemy
+import com.example.tommyred.pathfindergame.domain.game.entities.Player
+import com.example.tommyred.pathfindergame.domain.common.utilities.Coordinate
+import com.example.tommyred.pathfindergame.domain.common.utilities.Direction
 import com.example.tommyred.pathfindergame.presentation.game.GamePresenter
 
 /**

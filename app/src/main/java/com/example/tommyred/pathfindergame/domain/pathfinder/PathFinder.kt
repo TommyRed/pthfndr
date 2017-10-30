@@ -1,8 +1,8 @@
 package com.example.tommyred.pathfindergame.domain.pathfinder
 
-import com.example.tommyred.pathfindergame.domain.board.GameBoard
-import com.example.tommyred.pathfindergame.domain.board.GameFieldType
-import com.example.tommyred.pathfindergame.domain.utilities.Coordinate
+import com.example.tommyred.pathfindergame.domain.game.board.GameBoard
+import com.example.tommyred.pathfindergame.domain.game.board.GameFieldType
+import com.example.tommyred.pathfindergame.domain.common.utilities.Coordinate
 
 /**
  * Created by Rechtig on 06.06.2017.
@@ -14,7 +14,7 @@ object PathFinder {
 
   fun findPath(board: GameBoard, startPoint: Coordinate, endPoint: Coordinate): List<Coordinate> {
 
-    var markedBoard: List<List<Int>> = createMarkedMap(board.giveBoard()).map { it.toList() }.toList()
+    var markedBoard: List<List<Int>> = createDefaultMarkedMap(board.giveBoard()).map { it.toList() }
 
     markedBoard = markedBoard.mapIndexed { y, row -> row.mapIndexed { x, i -> if (board.giveBoard()[y][x].type == GameFieldType.OBSTACLE) 1000 else i } }
 
@@ -37,8 +37,6 @@ object PathFinder {
         markField(coordinate, minNeighbor + 1)
       }
 
-      println("CREATERECCURSION")
-
       resolve(Coordinate(coordinate.x + 1, coordinate.y), value + 1)
       resolve(Coordinate(coordinate.x - 1, coordinate.y), value + 1)
       resolve(Coordinate(coordinate.x, coordinate.y + 1), value + 1)
@@ -48,21 +46,23 @@ object PathFinder {
     markField(startPoint, 0)
     resolve(startPoint, 0)
 
-    markedBoard.forEach { row ->
-      run {
-        row.forEach { print(it) }
-        println()
-      }
-    }
 
 //        var flag = true
-    var path: List<Coordinate> = listOf(endPoint)
+    var path: List<Coordinate> = listOf(getSmallestNeighbor(markedBoard, endPoint).first, endPoint)
+    var i: Int = 1
 
-    while (path.first() != startPoint) {
+    path.forEach { println("$ it = $it") }
+
+    println(endPoint)
+    println(startPoint)
+
+    while (path.first() != endPoint) {
+      println("#    $startPoint === ${path.first()}")
       path = listOf(getSmallestNeighbor(markedBoard, path.first()).first) + path
+      i++
     }
 
-    return path
+    return listOf(startPoint)
   }
 
 
@@ -70,19 +70,37 @@ object PathFinder {
    * Creates clone of provided map with fields marked as defaultValue
    * @param shadowMap Any map which
    */
-  fun <T> createMarkedMap(shadowMap: Collection<Collection<T>>): Collection<Collection<Int>> =
+  fun <T> createDefaultMarkedMap(shadowMap: Collection<Collection<T>>): Collection<Collection<Int>> =
           shadowMap.map { row -> row.map { defaultValue } }
+
+  /**
+   * Mark obstacles to marked map depending on shadow's map value
+   * @param shadowMap Any map containing bannedValue specified below
+   * @param bannedValue Banned value which represents
+   */
+  fun <T> markObstacles(shadowMap: List<List<T>>, map: List<List<Int>>, bannedValue: T, substatial: Int): List<List<Int>> =
+          map.mapIndexed { y, row -> row.mapIndexed { x, field -> if (shadowMap[y][x] == bannedValue) substatial else field } }
 
   /**
    * Check if coordinateis in bounds of field
    * @param coordinate represent coordinate to check
-   * @param board board in which is coordinate checked
+   * @param list board in which is coordinate checked
    */
   private fun checkBounds(coordinate: Coordinate, list: List<List<Int>>): Boolean =
           coordinate.x in 0..list.size - 1 && coordinate.y in 0..list[0].size - 1
 
-  private fun getSmallestNeighbor(list: List<List<Int>>, startPoint: Coordinate): Pair<Coordinate, Int> {
 
+  private fun getSmallestNeighbor(list: List<List<Int>>, startPoint: Coordinate): Pair<Coordinate, Int> {
+    val map: Map<Coordinate, Int> = getNeighbours(startPoint, list)
+
+    val x = Pair(checkNotNull(map.minBy { it.value }?.key), checkNotNull(map.minBy { it.value }?.value)).first
+
+    println("#    SMALLEST NEIGHBOR : $x")
+
+    return Pair(checkNotNull(map.minBy { it.value }?.key), checkNotNull(map.minBy { it.value }?.value))
+  }
+
+  private fun getNeighbours(startPoint: Coordinate, list: List<List<Int>>): Map<Coordinate, Int> {
     val topCoordinate: Coordinate = Coordinate(startPoint.x, startPoint.y)
     val rightCoordinate: Coordinate = Coordinate(startPoint.x, startPoint.y)
     val bottomCoordinate: Coordinate = Coordinate(startPoint.x, startPoint.y)
@@ -96,10 +114,6 @@ object PathFinder {
             Pair(bottomCoordinate, getFieldValue(bottomCoordinate)),
             Pair(leftCoordinate, getFieldValue(leftCoordinate))
     )
-
-    return constructPair(map)
+    return map
   }
-
-  private fun constructPair(map: Map<Coordinate, Int>): Pair<Coordinate, Int> =
-          Pair(checkNotNull(map.minBy { it.value }?.key), checkNotNull(map.minBy { it.value }?.value))
 }

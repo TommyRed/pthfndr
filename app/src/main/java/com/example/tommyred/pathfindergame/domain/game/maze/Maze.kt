@@ -1,4 +1,4 @@
-package com.example.tommyred.pathfindergame.domain.maze
+package com.example.tommyred.pathfindergame.domain.game.maze
 
 import com.google.gson.annotations.SerializedName
 

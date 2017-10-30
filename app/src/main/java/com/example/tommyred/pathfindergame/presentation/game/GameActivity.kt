@@ -9,8 +9,8 @@ import android.widget.Toast
 
 import com.example.tommyred.pathfindergame.R
 
-import com.example.tommyred.pathfindergame.domain.board.GameBoard
-import com.example.tommyred.pathfindergame.domain.utilities.Direction
+import com.example.tommyred.pathfindergame.domain.game.board.GameBoard
+import com.example.tommyred.pathfindergame.domain.common.utilities.Direction
 import com.example.tommyred.pathfindergame.presentation.result.ResultActivity
 import nucleus.factory.RequiresPresenter
 import nucleus.view.NucleusActivity

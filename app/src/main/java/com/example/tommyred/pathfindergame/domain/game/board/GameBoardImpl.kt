@@ -1,6 +1,6 @@
-package com.example.tommyred.pathfindergame.domain.board
+package com.example.tommyred.pathfindergame.domain.game.board
 
-import com.example.tommyred.pathfindergame.domain.entities.Entity
+import com.example.tommyred.pathfindergame.domain.game.entities.Entity
 import com.example.tommyred.pathfindergame.domain.common.utilities.Coordinate
 import com.example.tommyred.pathfindergame.domain.common.utilities.state.State
 import com.example.tommyred.pathfindergame.domain.common.utilities.state.Success
@@ -26,9 +26,9 @@ class GameBoardImpl(val gameBoard: List<List<GameField>>) : GameBoard {
      */
     private fun checkOffset(y: Int, x: Int): State =
             if (checkBounds(x, gameBoard.size) && checkBounds(y, gameBoard.size))
-                Success.MOVE_IS_POSSIBLE
+              Success.MOVE_IS_POSSIBLE
             else
-                BoardError.MOVE_OUT_OF_BOUNDS
+              BoardError.MOVE_OUT_OF_BOUNDS
 
     /**
      * Check field on possible walls or enemies
@@ -40,11 +40,11 @@ class GameBoardImpl(val gameBoard: List<List<GameField>>) : GameBoard {
      */
     private fun checkEntities(coordinate: Coordinate): State =
             if (checkField(coordinate, GameFieldType.ENEMY))
-                BoardError.MOVE_ON_ENEMY
+              BoardError.MOVE_ON_ENEMY
             else if (checkField(coordinate, GameFieldType.OBSTACLE))
-                BoardError.MOVE_ON_WALL
+              BoardError.MOVE_ON_WALL
             else
-                Success.MOVE_IS_POSSIBLE
+              Success.MOVE_IS_POSSIBLE
 
     /**
      * Check if field is valid for player to move

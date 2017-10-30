@@ -4,15 +4,15 @@ import android.content.Context
 import android.os.Bundle
 import com.example.tommyred.pathfindergame.data.GSONReader
 
-import com.example.tommyred.pathfindergame.domain.board.GameBoardImpl
+import com.example.tommyred.pathfindergame.domain.game.board.GameBoardImpl
 import com.example.tommyred.pathfindergame.domain.Game
-import com.example.tommyred.pathfindergame.domain.board.GameBoard
-import com.example.tommyred.pathfindergame.domain.board.GameField
-import com.example.tommyred.pathfindergame.domain.board.GameFieldType
-import com.example.tommyred.pathfindergame.domain.entities.Enemy
-import com.example.tommyred.pathfindergame.domain.entities.Player
-import com.example.tommyred.pathfindergame.domain.utilities.Coordinate
-import com.example.tommyred.pathfindergame.domain.utilities.Direction
+import com.example.tommyred.pathfindergame.domain.game.board.GameBoard
+import com.example.tommyred.pathfindergame.domain.game.board.GameField
+import com.example.tommyred.pathfindergame.domain.game.board.GameFieldType
+import com.example.tommyred.pathfindergame.domain.game.entities.Enemy
+import com.example.tommyred.pathfindergame.domain.game.entities.Player
+import com.example.tommyred.pathfindergame.domain.common.utilities.Coordinate
+import com.example.tommyred.pathfindergame.domain.common.utilities.Direction
 import com.example.tommyred.pathfindergame.mock.Mock
 
 import nucleus.presenter.RxPresenter
@@ -24,7 +24,7 @@ import nucleus.presenter.RxPresenter
 class GamePresenter : RxPresenter<GameView>() {
 
     private var game = Game(GameBoardImpl(
-            Mock.createMockGameBoard()),
+            Mock.getMockGameBoard()),
             Player(Coordinate(0, 0), GameFieldType.PLAYER),
             Enemy(Coordinate(2, 2), GameFieldType.ENEMY),
             Coordinate(1, 0)

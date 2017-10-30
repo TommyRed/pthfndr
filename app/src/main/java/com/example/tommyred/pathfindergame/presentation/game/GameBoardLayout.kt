@@ -3,9 +3,7 @@ package com.example.tommyred.pathfindergame.presentation.game
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.GridLayout
-import com.example.tommyred.pathfindergame.domain.board.GameBoard
-
-import com.example.tommyred.pathfindergame.domain.board.GameBoardImpl
+import com.example.tommyred.pathfindergame.domain.game.board.GameBoard
 
 
 /**

@@ -1,4 +1,4 @@
-package com.example.tommyred.pathfindergame.domain.utilities
+package com.example.tommyred.pathfindergame.domain.common.utilities
 
 /**
  * Created by Rechtig on 21.05.2017.

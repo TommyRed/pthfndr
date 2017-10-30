@@ -1,13 +1,11 @@
 package com.example.tommyred.pathfindergame.data
 
 import android.content.Context
-import com.example.tommyred.pathfindergame.domain.board.GameField
-import com.example.tommyred.pathfindergame.domain.board.GameFieldType
-import com.example.tommyred.pathfindergame.domain.maze.Maze
+import com.example.tommyred.pathfindergame.domain.game.board.GameField
+import com.example.tommyred.pathfindergame.domain.game.board.GameFieldType
+import com.example.tommyred.pathfindergame.domain.game.maze.Maze
 import java.io.IOException
 import java.io.InputStream
-import org.json.JSONException
-import org.json.JSONObject
 import org.json.JSONArray
 
 

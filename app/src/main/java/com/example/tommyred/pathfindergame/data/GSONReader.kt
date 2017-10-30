@@ -1,8 +1,7 @@
 package com.example.tommyred.pathfindergame.data
 
 import android.content.Context
-import com.example.tommyred.pathfindergame.domain.board.GameField
-import com.example.tommyred.pathfindergame.domain.maze.Maze
+import com.example.tommyred.pathfindergame.domain.game.maze.Maze
 import com.google.gson.Gson
 import java.io.IOException
 import java.io.InputStream
@@ -12,13 +11,7 @@ import java.io.InputStream
  */
 object GSONReader: Reader {
 
-    override fun getBoard(context: Context): Maze {
-        val gson : Gson = Gson()
-
-        val maze : Maze = gson.fromJson(getJSONString(context), Maze::class.java)
-
-        return maze
-    }
+    override fun getBoard(context: Context): Maze = Gson().fromJson(getJSONString(context), Maze::class.java)
 
     /**
      * Read from JSON file and

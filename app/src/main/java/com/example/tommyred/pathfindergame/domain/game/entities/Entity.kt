@@ -1,6 +1,6 @@
-package com.example.tommyred.pathfindergame.domain.entities
+package com.example.tommyred.pathfindergame.domain.game.entities
 
-import com.example.tommyred.pathfindergame.domain.board.GameFieldType
+import com.example.tommyred.pathfindergame.domain.game.board.GameFieldType
 import com.example.tommyred.pathfindergame.domain.common.utilities.Coordinate
 
 /**

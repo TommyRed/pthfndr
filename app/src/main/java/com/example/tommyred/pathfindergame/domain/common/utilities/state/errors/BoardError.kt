@@ -1,6 +1,6 @@
-package com.example.tommyred.pathfindergame.domain.utilities.state.errors
+package com.example.tommyred.pathfindergame.domain.common.utilities.state.errors
 
-import com.example.tommyred.pathfindergame.domain.utilities.state.Error
+import com.example.tommyred.pathfindergame.domain.common.utilities.state.Error
 
 /**
  * Created by Rechtig on 21.05.2017.
